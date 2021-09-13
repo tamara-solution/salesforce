@@ -6,8 +6,6 @@
             <preference preference-id="tamaraAPIToken">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhY2NvdW50SWQiOiJjZjE2NmMyMy0xYjI1LTRjYmYtYWE3Mi04YmRmMTk5MDIwYzAiLCJ0eXBlIjoibWVyY2hhbnQiLCJzYWx0IjoiN2JmZjZkMjY2MGMxMmYzYmIwYWM5NjFiZWQ4YTBiNzQiLCJpYXQiOjE2MTA4ODM0OTUsImlzcyI6IlRhbWFyYSJ9.ve4DZYAGlNOBARy6n6gs0v0NClsTuEV8CpTNXc1p5OyznLbsjX0FAUNg1RwaXp-NwodZp9GtRa26YX-ngfRNi4sAtD826cKGl7Q3hawCYHfxeT174CY95Ink19S_dn_DO2VWS3wuvTotyyCjZD4bi8IjTSlmo2opFblYcrLwfoZEekSsdm070NCkSl7G2pqL8fVY89JSqa2yk4BM_DKdEah-K1p9K39u12Po2-4BxSuICJdGIKTuA5EkmXcbt7vTLxPZkRIdW3saxuLAjhpwIPhgVjHIj-Eb179xu8XD8vX9mB5FknD1kX8dWVxnlugSvXFyBZ7_-_dLADuwxGBZuA</preference>
             <preference preference-id="tamaraEnablement">true</preference>
             <preference preference-id="tamaraEndPoint">https://api-sandbox.tamara.co</preference>
-            <preference preference-id="tamaraInstalmentsID">PAY_BY_INSTALMENTS</preference>
-            <preference preference-id="tamaraPaylaterID">PAY_BY_LATER</preference>
             <preference preference-id="tamaraSupportedCountries">
                 <value>UAE</value>
                 <value>SA</value>
