@@ -3,6 +3,17 @@
 var Resource = require("dw/web/Resource");
 var Transaction = require("dw/system/Transaction");
 var tamaraHelper = require("*/cartridge/scripts/util/tamaraHelper");
+
+const errorMessageMap = {
+  "amount_is_higher_than_max_limit": "error.amount_is_higher_than_max_limit",
+  "consumer_empty_first_name": "error.consumer_empty_first_name",  
+  "consumer_invalid_phone_number": "error.consumer_invalid_phone_number",
+  "consumer_invalid_email": "error.consumer_invalid_email",
+  "consumer_empty_email": "error.consumer_empty_email",
+  "total_amount_invalid_currency": "error.total_amount_invalid_currency",
+  "not_supported_delivery_country": "error.not_supported_delivery_country"
+};
+
 /**
  * Creates a token. This should be replaced by utilizing a tokenization provider
  * @returns {string} a token
@@ -98,7 +109,21 @@ function Authorize(orderNumber, paymentInstrument, paymentProcessor) {
     });
   } catch (e) {
     error = true;
-    serverErrors.push(Resource.msg("error.technical", "checkout", null));
+    if (e.message) {
+      const errorKey = Object.keys(errorMessageMap).find(key => e.message.includes(key));
+      if (errorKey) {
+        const errorMessage = errorMessageMap[errorKey];
+        if (errorMessage) {
+          serverErrors.push(Resource.msg(errorMessage, "tamara", null));
+        } else {
+          serverErrors.push(Resource.msg("error.technical", "checkout", null));
+        }
+      } else {
+        serverErrors.push(Resource.msg("error.technical", "checkout", null));
+      }
+    } else {
+      serverErrors.push(Resource.msg("error.technical", "checkout", null));
+    }
     tamaraHelper
       .getTamaraLogger()
       .error(
