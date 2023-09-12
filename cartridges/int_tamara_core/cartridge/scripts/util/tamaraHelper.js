@@ -929,8 +929,11 @@ var tamaraHelperObj = {
         (available_payment_label) => {
           if (available_payment_label["payment_type"] === this.PAY_NOW) {
             paymentTypes.isEnablePaynow = true;
-            paymentTypes[this.METHOD_TAMARA_PAYNOW] =
-              available_payment_label["description_en"];
+            if (tamaraHelperObj.getCurrentLangCode() === "ar") {
+              paymentTypes[this.METHOD_TAMARA_PAYNOW] = available_payment_label["description_ar"];
+            } else {
+              paymentTypes[this.METHOD_TAMARA_PAYNOW] = available_payment_label["description_en"];
+            }
           }
 
           if (
@@ -939,8 +942,11 @@ var tamaraHelperObj = {
             available_payment_label["instalment"] === 0
           ) {
             paymentTypes.isEnableTamaraPay = true;
-            paymentTypes[this.METHOD_PAY_BY_INSTALMENTS] =
-              available_payment_label["description_en"];
+            if (tamaraHelperObj.getCurrentLangCode() === "ar") {
+              paymentTypes[this.METHOD_PAY_BY_INSTALMENTS] = available_payment_label["description_ar"];
+            } else {
+              paymentTypes[this.METHOD_PAY_BY_INSTALMENTS] = available_payment_label["description_en"];
+            }
           }
 
           if (
@@ -949,8 +955,11 @@ var tamaraHelperObj = {
             available_payment_label["instalment"] === 3
           ) {
             paymentTypes.isEnableInstalments = true;
-            paymentTypes[this.METHOD_TAMARA_INSTALMENTS] =
-              available_payment_label["description_en"];
+            if (tamaraHelperObj.getCurrentLangCode() === "ar") {
+              paymentTypes[this.METHOD_TAMARA_INSTALMENTS] = available_payment_label["description_ar"];
+            } else {
+              paymentTypes[this.METHOD_TAMARA_INSTALMENTS] = available_payment_label["description_en"];
+            }
           }
 
           if (
@@ -959,8 +968,11 @@ var tamaraHelperObj = {
             available_payment_label["instalment"] === 6
           ) {
             paymentTypes.is6InstalmentsEnabled = true;
-            paymentTypes[this.METHOD_TAMARA_6_INSTALMENTS] =
-              available_payment_label["description_en"];
+            if (tamaraHelperObj.getCurrentLangCode() === "ar") {
+              paymentTypes[this.METHOD_TAMARA_6_INSTALMENTS] = available_payment_label["description_ar"];
+            } else {
+              paymentTypes[this.METHOD_TAMARA_6_INSTALMENTS] = available_payment_label["description_en"];
+            }
           }
         }
       );
